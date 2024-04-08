@@ -7,7 +7,7 @@ const Title = () => (
   </h1>
 );
 
-//React Functional Component
+//Component Composition
 const HeadingComponent = () => (
   <div>
     <Title />
