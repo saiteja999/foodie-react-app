@@ -21,9 +21,7 @@ const Header = () => {
 };
 
 
-const RestaurantCard = (props) =>{
-  
-  const {restaurant, cuisine} = props;
+const RestaurantCard = ({restaurant, cuisine}) =>{
 
   return(
     <div className="res-card" style={{backgroundColor: "#f0f0f0"}}>
