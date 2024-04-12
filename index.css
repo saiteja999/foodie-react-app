@@ -42,3 +42,8 @@
 .res-container{
     display: flex;
 }
+
+.filter-btn{
+    margin: 10px;
+    cursor: pointer;
+}
