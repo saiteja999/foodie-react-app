@@ -26,6 +26,8 @@ const Header = () => {
 const RestaurantCard = (props) => {
   const { resData } = props;
 
+  const { name, cuisines, avgRating, costForTwo } = resData?.data;
+
   return (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
@@ -33,10 +35,10 @@ const RestaurantCard = (props) => {
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/irnwr59vlrmciau11or0"
         alt="Couldn't display image"
       />
-      <h3>{resData.data.name}</h3>
-      <h4>{resData.data.cuisines.join(", ")}</h4>
-      <h4>{resData.data.avgRating}</h4>
-      <h4> {resData.data.costForTwo / 100} </h4>
+      <h3>{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{avgRating}</h4>
+      <h4> {costForTwo / 100} </h4>
     </div>
   );
 };
