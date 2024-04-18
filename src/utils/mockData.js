@@ -1,7 +1,7 @@
 const resList = [
   {
     type: "restaurant",
-    data: {
+    info: {
       type: "F",
       id: "334475",
       name: "KFC",
@@ -126,7 +126,7 @@ const resList = [
   },
   {
     type: "restaurant",
-    data: {
+    info: {
       type: "F",
       id: "229",
       name: "Meghana Foods",
@@ -253,7 +253,7 @@ const resList = [
   },
   {
     type: "restaurant",
-    data: {
+    info: {
       type: "F",
       id: "121603",
       name: "Kannur Food Point",
