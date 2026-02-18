@@ -4,7 +4,7 @@ import { useRestaurantMenu } from "../hooks/useRestaurantMenu";
 import { useCart } from "../hooks/useCart";
 import { CDN_URL } from "../utils/constants";
 import { getItemCardsFromMenu } from "../utils/menuHelpers";
-import { mockMenuCards } from "../utils/mockMenuData";
+import { getMockMenuForRestaurant } from "../utils/mockMenuData";
 
 function MenuItem({ item, restaurantId, restaurantName, onAdd }) {
   const card = item?.card?.info;
@@ -53,10 +53,11 @@ const RestaurantDetailPage = () => {
   const allRestaurants = useSelector((state) => state.restaurants.allRestaurants);
   const restaurantFromList = allRestaurants.find((r) => r?.info?.id === id);
   
-  const itemCards =
-    getItemCardsFromMenu(menu).length > 0
-      ? getItemCardsFromMenu(menu)
-      : mockMenuCards.flatMap((c) => c?.card?.card?.itemCards ?? []);
+  const apiItems = getItemCardsFromMenu(menu);
+  const mockItems = getMockMenuForRestaurant(id).flatMap(
+    (c) => c?.card?.card?.itemCards ?? []
+  );
+  const itemCards = apiItems.length > 0 ? apiItems : mockItems;
 
   if (loading) return <div className="body">Loading menu…</div>;
   
