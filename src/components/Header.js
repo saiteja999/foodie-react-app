@@ -1,20 +1,44 @@
-import { LOGO_URL } from "../utils/constants";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { ROUTES } from "../utils/constants";
 
 const Header = () => {
+  const totalItems = useSelector((state) =>
+    state.cart.items.reduce((sum, i) => sum + i.quantity, 0)
+  );
+
+  const navClass = ({ isActive }) => (isActive ? "nav-link active" : "nav-link");
+
   return (
-    <div className="header">
-      <div>
-        <img class="logo" src={LOGO_URL} alt="image" />
-      </div>
-      <div className="nav-items">
+    <header className="header">
+      <NavLink to={ROUTES.HOME} className="logo-wrap">
+        <span className="logo-text">🍔 Foodie</span>
+      </NavLink>
+      <nav className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact</li>
-          <li>Cart</li>
+          <li>
+            <NavLink to={ROUTES.HOME} className={navClass}>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.ABOUT} className={navClass}>
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.CONTACT} className={navClass}>
+              Contact
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.CART} className={navClass}>
+              Cart {totalItems > 0 && `(${totalItems})`}
+            </NavLink>
+          </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 
