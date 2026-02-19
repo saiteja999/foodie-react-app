@@ -1,6 +1,4 @@
-# Foodie — Food Ordering App
-
-Production-grade food ordering app built with **React 18**, **Redux Toolkit**, **React Router**, **external API integration**, **custom hooks**, and **Jest unit tests**.
+# Foodie - Food Ordering App
 
 ## Features
 
